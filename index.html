@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PMOS · 同伴社区</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#feed" aria-label="PMOS 社区首页"><span>✦</span> PMOS</a>
+        <nav id="main-nav" aria-label="主导航"></nav>
+      </header>
+      <section id="app" aria-live="polite"></section>
+    </main>
+    <div id="toast" class="toast" role="status"></div>
+    <script src="/supabase.config.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
