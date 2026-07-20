@@ -40,7 +40,6 @@ export default function Home() {
   const dashboardQuery = useQuery({ queryKey: ["health-dashboard", today], queryFn: () => getDashboard(today) });
   const dashboard = dashboardQuery.data;
   const greeting = new Intl.DateTimeFormat("zh-CN", { month: "long", day: "numeric", weekday: "long" }).format(new Date(`${today}T12:00:00`));
-  const displayName = dashboard?.profile?.displayName || "你";
   const completed = dashboard?.metric.completedCount ?? 0;
   const total = dashboard?.metric.totalCount ?? 4;
   const completionRate = dashboard?.metric.completionRate ?? 0;
@@ -52,7 +51,7 @@ export default function Home() {
         <header className="flex flex-wrap items-end justify-between gap-4 pt-1">
           <div>
             <p className="warm-kicker">SUTA · WARM COMPANION</p>
-            <h1 className="warm-title mt-1 text-3xl sm:text-4xl">早安，{displayName}</h1>
+            <h1 className="warm-title mt-1 text-3xl sm:text-4xl">欢迎回来！</h1>
             <p className="mt-2 text-sm text-[#9a6d68]">{greeting} · 今天也让身体被好好照顾。</p>
           </div>
           <button onClick={() => setLocation("/growth")} className="group inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-medium text-[#b95f5d] shadow-[0_8px_22px_rgba(188,93,88,0.10)] transition-all hover:-translate-y-0.5 hover:bg-white">
@@ -66,10 +65,10 @@ export default function Home() {
           <div className="relative grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#f1d9df] bg-white/75 px-3 py-1.5 text-xs font-medium text-[#ca6d78]"><Sun className="h-3.5 w-3.5" /> 今日的一点温柔</div>
-              <h2 className="mt-5 font-serif text-3xl leading-tight tracking-[-0.04em] sm:text-4xl">早安，{displayName}。<br /><span className="text-[#df7881]">今天也从照顾自己开始。</span></h2>
-              <p className="mt-4 max-w-md text-sm leading-6 text-[#926f6a]">每一个小小的行动，都是对未来自己的温柔投资。团团已经为你准备好今日的健康小任务。</p>
+              <h2 className="mt-5 font-serif text-3xl leading-tight tracking-[-0.04em] sm:text-4xl">今天过得怎么样？</h2>
+              <p className="mt-4 max-w-md text-sm leading-6 text-[#926f6a]">如果还没想好从哪里开始，就先选一个最轻松的：喝水、散步、早点睡，或者写下现在的心情。</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button onClick={() => setLocation("/checkin")} className="rounded-full bg-[#f16f86] px-5 text-white shadow-[0_10px_22px_rgba(222,97,119,0.23)] hover:bg-[#e5627b]">开始今日打卡 <ChevronRight className="ml-1 h-4 w-4" /></Button>
+                <Button onClick={() => setLocation("/checkin")} className="rounded-full bg-[#f16f86] px-5 text-white shadow-[0_10px_22px_rgba(222,97,119,0.23)] hover:bg-[#e5627b]">选一件小事开始 <ChevronRight className="ml-1 h-4 w-4" /></Button>
                 <Button variant="outline" onClick={() => setLocation("/calendar")} className="rounded-full border-[#edc9d1] bg-white/65 px-5 text-[#b75f6c] hover:bg-white hover:text-[#a95060]"><CalendarHeart className="mr-1.5 h-4 w-4" /> 看看我的节律</Button>
               </div>
             </div>

@@ -152,7 +152,7 @@ function renderArticle(article) {
   const next = articles[(currentIndex + 1) % articles.length];
   main.innerHTML = `
     <header class="article-hero">
-      <a class="back-link" href="#/">← 返回全部文章</a>
+      <a class="back-link" href="/education">← 返回主站科普</a>
       <span class="card-tag">${article.tag}</span>
       <h1>${article.title}</h1>
       <p class="article-summary">${article.summary}</p>
@@ -178,7 +178,7 @@ function renderArticle(article) {
 
 function renderAbout() {
   main.innerHTML = `<section class="about-panel">
-    <a class="back-link" href="#/">← 返回文章首页</a>
+    <a class="back-link" href="/education">← 返回主站科普</a>
     <p class="eyebrow">ABOUT PMOS</p>
     <h1>关于这个科普模块</h1>
     <p>PMOS 是多内分泌代谢性卵巢综合征（Polyendocrine Metabolic Ovarian Syndrome）的英文缩写，原称 PCOS（多囊卵巢综合征）。本模块以疾病更名、基础认识、诊断、生活管理、心理健康和就医支持为六个核心主题。</p>
