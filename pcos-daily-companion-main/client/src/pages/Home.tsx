@@ -25,20 +25,11 @@ const formatDate = (value: Date) => value.toISOString().slice(0, 10);
 function Companion({ compact = false }: { compact?: boolean }) {
   return (
     <div className={`relative ${compact ? "h-28 w-28" : "h-44 w-44 sm:h-52 sm:w-52"}`} aria-label="Suta陪伴精灵团团" role="img">
-      <span className="pet-pulse absolute inset-2 rounded-full bg-[#ffb4a8]/35 blur-2xl" />
-      <span className="pet-float absolute inset-0 flex items-center justify-center">
-        <span className={`relative flex items-center justify-center rounded-[48%_52%_52%_48%] bg-gradient-to-br from-[#fff8f1] via-[#ffd7ce] to-[#f6a7a3] shadow-[inset_-8px_-10px_18px_rgba(216,100,101,0.15),0_22px_40px_rgba(197,94,91,0.22)] ${compact ? "h-24 w-24" : "h-36 w-36 sm:h-44 sm:w-44"}`}>
-          <span className={`absolute -left-3 -top-4 rotate-[-28deg] rounded-[90%_15%_80%_15%] bg-[#ffb9b1] ${compact ? "h-10 w-7" : "h-14 w-9"}`} />
-          <span className={`absolute -right-3 -top-4 rotate-[28deg] rounded-[15%_90%_15%_80%] bg-[#ffb9b1] ${compact ? "h-10 w-7" : "h-14 w-9"}`} />
-          <span className="absolute left-[33%] top-[45%] h-2.5 w-2.5 rounded-full bg-[#714448]" />
-          <span className="absolute right-[33%] top-[45%] h-2.5 w-2.5 rounded-full bg-[#714448]" />
-          <span className="absolute top-[58%] h-2 w-3 rounded-full bg-[#dc7773]" />
-          <span className="absolute left-[26%] top-[62%] h-3 w-5 rounded-full bg-[#f5a5a0]/70 blur-[1px]" />
-          <span className="absolute right-[26%] top-[62%] h-3 w-5 rounded-full bg-[#f5a5a0]/70 blur-[1px]" />
-          <Heart className={`absolute -bottom-3 fill-[#f47f78] text-[#f47f78] ${compact ? "h-6 w-6" : "h-8 w-8"}`} />
-        </span>
-      </span>
-      {!compact ? <><Sparkles className="absolute left-0 top-7 h-5 w-5 text-[#f39a75]" /><Flower2 className="absolute right-0 top-4 h-5 w-5 text-[#e67a98]" /><span className="absolute bottom-2 left-0 h-3 w-3 rounded-full bg-[#f6be8d]" /></> : null}
+      <span className="pet-pulse absolute inset-2 rounded-full bg-[#ff9db0]/30 blur-2xl" />
+      <div className="pet-float absolute inset-0 flex items-center justify-center overflow-hidden rounded-[2rem] bg-[#f6c7d2] shadow-[0_20px_38px_rgba(217,111,132,.24)]">
+        <img src="/reference/home-tutu-icon.png" alt="团团" className="h-full w-full object-contain" />
+      </div>
+      {!compact ? <><Sparkles className="absolute -left-1 top-7 h-5 w-5 text-[#f39a75]" /><Flower2 className="absolute -right-1 top-4 h-5 w-5 text-[#e67a98]" /><span className="absolute bottom-2 left-0 h-3 w-3 rounded-full bg-[#f6be8d]" /></> : null}
     </div>
   );
 }
@@ -69,22 +60,24 @@ export default function Home() {
           </button>
         </header>
 
-        <section className="relative overflow-hidden rounded-[2rem] warm-gradient px-6 py-7 text-white sm:px-9 sm:py-9">
+        <section className="reference-hero relative overflow-hidden rounded-[2rem] px-6 py-7 text-[#573c39] sm:px-9 sm:py-9">
           <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full bg-white/15 blur-2xl" />
           <div className="absolute bottom-0 left-[45%] h-28 w-72 rounded-full bg-[#d96168]/20 blur-2xl" />
           <div className="relative grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/13 px-3 py-1.5 text-xs font-medium text-white/90"><Sun className="h-3.5 w-3.5" /> 今日的一点温柔</div>
-              <h2 className="mt-5 font-serif text-3xl leading-tight tracking-[-0.04em] sm:text-4xl">不必追赶完美，<br />从一次轻轻的打卡开始。</h2>
-              <p className="mt-4 max-w-md text-sm leading-6 text-white/85">团团已经为你准备好今日的健康小任务。每一笔记录，都会变成陪伴你成长的星光。</p>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f1d9df] bg-white/75 px-3 py-1.5 text-xs font-medium text-[#ca6d78]"><Sun className="h-3.5 w-3.5" /> 今日的一点温柔</div>
+              <h2 className="mt-5 font-serif text-3xl leading-tight tracking-[-0.04em] sm:text-4xl">早安，{displayName}。<br /><span className="text-[#df7881]">今天也从照顾自己开始。</span></h2>
+              <p className="mt-4 max-w-md text-sm leading-6 text-[#926f6a]">每一个小小的行动，都是对未来自己的温柔投资。团团已经为你准备好今日的健康小任务。</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button onClick={() => setLocation("/checkin")} className="rounded-full bg-white px-5 text-[#c65e60] shadow-[0_10px_22px_rgba(130,54,54,0.16)] hover:bg-[#fff7f4]">开始今日打卡 <ChevronRight className="ml-1 h-4 w-4" /></Button>
-                <Button variant="outline" onClick={() => setLocation("/calendar")} className="rounded-full border-white/35 bg-white/10 px-5 text-white hover:bg-white/18 hover:text-white"><CalendarHeart className="mr-1.5 h-4 w-4" /> 看看我的节律</Button>
+                <Button onClick={() => setLocation("/checkin")} className="rounded-full bg-[#f16f86] px-5 text-white shadow-[0_10px_22px_rgba(222,97,119,0.23)] hover:bg-[#e5627b]">开始今日打卡 <ChevronRight className="ml-1 h-4 w-4" /></Button>
+                <Button variant="outline" onClick={() => setLocation("/calendar")} className="rounded-full border-[#edc9d1] bg-white/65 px-5 text-[#b75f6c] hover:bg-white hover:text-[#a95060]"><CalendarHeart className="mr-1.5 h-4 w-4" /> 看看我的节律</Button>
               </div>
             </div>
             <div className="hidden md:block"><Companion /></div>
           </div>
         </section>
+
+        <section className="grid gap-3 sm:grid-cols-3"><div className="reference-card rounded-2xl p-4"><p className="text-xs text-[#a27d78]">今日完成度</p><p className="mt-2 font-serif text-3xl text-[#593c39]">{Math.round(completionRate)}<span className="ml-1 text-sm text-[#b58c86]">%</span></p><Progress value={completionRate} className="mt-3 h-2 bg-[#fde5e8] [&>div]:bg-[#ed7484]" /></div><div className="reference-card rounded-2xl p-4"><p className="text-xs text-[#a27d78]">今日状态</p><p className="mt-2 text-lg font-semibold text-[#694440]">{completed ? "正在变好" : "慢慢开始"}</p><p className="mt-2 text-xs text-[#dd7a83]">每一小步都算数</p></div><div className="reference-card rounded-2xl p-4"><p className="text-xs text-[#a27d78]">成长能量</p><p className="mt-2 font-serif text-3xl text-[#593c39]">{dashboard?.metric.healthScore ?? 0}<span className="ml-1 text-sm text-[#b58c86]">/100</span></p><p className="mt-2 text-xs text-[#df7a72]">✦ 团团正在收集星光</p></div></section>
 
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_330px]">
           <section className="warm-surface rounded-[1.75rem] p-5 sm:p-6">

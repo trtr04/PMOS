@@ -146,7 +146,7 @@ export default function CheckinPage() {
         {dashboardQuery.isLoading ? <DashboardSkeleton /> : data ? (
           <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
             <section className="space-y-6">
-              <div className="overflow-hidden rounded-[1.75rem] warm-gradient p-6 text-white shadow-[0_20px_44px_rgba(214,108,98,0.22)] md:p-7">
+              <div className="checkin-health-panel overflow-hidden rounded-[1.75rem] p-7 text-white md:p-9">
                 <div className="flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
                   <div><p className="text-sm text-white/80">今日健康指数</p><div className="mt-1 flex items-end gap-3"><span className="font-serif text-6xl tracking-[-0.06em]">{data.metric.healthScore}</span><span className="mb-2 text-sm text-white/80">/ 100</span></div><p className="mt-3 max-w-md text-sm leading-6 text-white/85">{data.metric.completionRate >= 75 ? "节奏很好，继续带着这份温柔往前走。" : "每一次记录都在帮你更了解自己的身体。"}</p></div>
                   <div className="w-full rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur sm:w-48"><div className="flex items-center justify-between text-xs text-white/85"><span>今日进度</span><span>{data.metric.completedCount}/{data.metric.totalCount}</span></div><Progress value={data.metric.completionRate} className="mt-3 h-2 bg-white/20 [&>div]:bg-[#ffe4bf]" /><p className="mt-3 text-xs text-white/85">已完成 {data.metric.completionRate}%</p></div>
