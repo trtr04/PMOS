@@ -5,7 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { CalendarDays, ChartNoAxesCombined, ChevronRight, ClipboardCheck, Flower2, Heart, HeartHandshake, House, LogOut, MessageCircleHeart, PawPrint, Sparkles } from "lucide-react";
+import { BookOpen, CalendarDays, ChartNoAxesCombined, ChevronRight, ClipboardCheck, Flower2, Heart, HeartHandshake, House, LogOut, MessageCircleHeart, PawPrint, Sparkles } from "lucide-react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from "./DashboardLayoutSkeleton";
 
@@ -15,6 +15,7 @@ const menuItems = [
   { icon: HeartHandshake, label: "队伍", caption: "彼此陪伴", path: "/team" },
   { icon: MessageCircleHeart, label: "论坛", caption: "温柔交流", path: "/forum" },
   { icon: PawPrint, label: "成长", caption: "团团花园", path: "/growth" },
+  { icon: BookOpen, label: "科普", caption: "健康知识", path: "/education" },
 ];
 
 const utilityItems = [

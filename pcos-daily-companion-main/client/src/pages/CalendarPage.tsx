@@ -1,7 +1,7 @@
-import { useAuth } from "@/_core/hooks/useAuth";
 import DashboardLayout from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
-import { trpc } from "@/lib/trpc";
+import { getHistory } from "@/lib/health";
+import { useQuery } from "@tanstack/react-query";
 import { CalendarDays, ChevronLeft, ChevronRight, Droplets, Sparkles } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -22,11 +22,10 @@ function formatMonth(anchor: Date) {
 }
 
 export default function CalendarPage() {
-  const { isAuthenticated } = useAuth();
   const [cursor, setCursor] = useState(() => new Date());
   const [selectedDate, setSelectedDate] = useState(() => dateString(new Date()));
   const span = useMemo(() => getMonthSpan(cursor), [cursor]);
-  const historyQuery = trpc.health.history.useQuery({ startDate: span.start, endDate: span.end }, { enabled: isAuthenticated });
+  const historyQuery = useQuery({ queryKey: ["health-history", span.start, span.end], queryFn: () => getHistory(span.start, span.end) });
   const records = historyQuery.data ?? [];
   const byDate = useMemo(() => new Map(records.map(item => [item.date, item])), [records]);
   const days = useMemo(() => {

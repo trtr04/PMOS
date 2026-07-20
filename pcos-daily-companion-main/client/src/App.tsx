@@ -12,6 +12,7 @@ import CheckinPage from "./pages/CheckinPage";
 import TeamPage from "./pages/TeamPage";
 import ForumPage from "./pages/ForumPage";
 import GrowthPage from "./pages/GrowthPage";
+import EducationPage from "./pages/EducationPage";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -25,6 +26,7 @@ function Router() {
       <Route path={"/calendar"} component={CalendarPage} />
       <Route path={"/profile"} component={ProfilePage} />
       <Route path={"/insights"} component={InsightsPage} />
+      <Route path={"/education"} component={EducationPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
